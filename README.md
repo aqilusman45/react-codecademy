@@ -1,2 +1,2 @@
-# react-codecademy
-React Self Learning 
+## React https://codecademy.com
+React Self Learning
