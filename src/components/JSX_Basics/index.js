@@ -28,11 +28,56 @@ const userProf = {
     gitHub: 'https://github.com/aqilusman45',
 }
 
+const friends = [
+    {
+        title: "Yummmmmmm",
+        src: "https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-monkeyweirdo.jpg"
+    },
+    {
+        title: "Hey Guys!  Wait Up!",
+        src: "https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-earnestfrog.jpg"
+    },
+    {
+        title: "Yikes",
+        src: "https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-alpaca.jpg"
+    }
+];
+
 const photoHeight = "100px";
+
+
+//This Wont Work as Target is not Defined
+//  function eventListenerEx(e){
+//     if (e.target.alt === 'Kitty') {
+//     e.target.setAttribute('src','https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-puppy.jpeg' );
+//     e.target.setAttribute('alt', 'Doggy');
+//     } else {
+//         e.target.setAttribute('src','https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-kitty.jpg' );
+//         e.target.setAttribute('alt', 'Kitty');
+//     }
+
+//     alert('Event Triggered');
+// }
 
 // React Component Classes
 export class JsxBasics extends React.Component {
+
+    eventListenerEx(e) {
+        if (e.target.alt === 'Kitty') {
+            e.target.setAttribute('src', 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-puppy.jpeg');
+            e.target.setAttribute('alt', 'Doggy');
+        } else {
+            e.target.setAttribute('src', 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-kitty.jpg');
+            e.target.setAttribute('alt', 'Kitty');
+        }
+
+        alert('Event Triggered');
+    }
+
+
     render() {
+        const friend = friends[1];
+        let randomRender = Math.random() > 0.5;
         //Render Method Returns JSX which is transpiled in to HTML
         //Some Rules While Writing JSX
         //JSX must always be wrapped in a parent container (generally Div)
@@ -66,7 +111,25 @@ export class JsxBasics extends React.Component {
                     <b />
                     <p>{userProf.description}</p>
                     <p className="Random_Number">{Math.PI}</p>
-                    <h4 className="Maths_Op">{8+3}</h4>
+                    <h4 className="Maths_Op">{8 + 3}</h4>
+                </div>
+                <div className="Conditional_Rendering">
+                    <p>{friend.title}</p>
+                    <img alt='hi' width='500px' src={friend.src} />
+                </div>
+
+                {
+                    (!randomRender) ? <p>Random Rendered</p> : <p></p>
+                }
+
+
+                <div>
+                    <h1>Advanced JSX</h1>
+
+                    <h2>Event Listeners</h2>
+                    <div>
+                        <img alt="Kitty" width="500px" src="https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-kitty.jpg" onClick={this.eventListenerEx} />
+                    </div>
                 </div>
             </div>
         )
