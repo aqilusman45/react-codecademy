@@ -62,6 +62,9 @@ const photoHeight = "100px";
 // React Component Classes
 export class JsxBasics extends React.Component {
 
+
+    //this method works because there is no state in it
+    //which needs binding
     eventListenerEx(e) {
         if (e.target.alt === 'Kitty') {
             e.target.setAttribute('src', 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-puppy.jpeg');
@@ -74,6 +77,13 @@ export class JsxBasics extends React.Component {
         alert('Event Triggered');
     }
 
+    scream(e){
+        alert("AAAAAAAAAH!");
+    }
+
+    hover(e){
+        alert("I am being hovered on!");
+    }
 
     render() {
         const friend = friends[1];
@@ -130,6 +140,11 @@ export class JsxBasics extends React.Component {
                     <div>
                         <img alt="Kitty" width="500px" src="https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-kitty.jpg" onClick={this.eventListenerEx} />
                     </div>
+                    <button onClick={this.scream}>
+                        Scream
+                    </button>
+                    <img alt="hover" width="500px" src="https://www.hover.com/packs/src/application/images/home/og_hover-ff5e561a072494f142806a1ee8541fca.png"
+                    onMouseOver={this.hover}/>
                 </div>
             </div>
         )
